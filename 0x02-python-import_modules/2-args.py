@@ -4,8 +4,8 @@ length = len(sys.argv) - 1
 
 # ensures operation doesn't occur if file is imported
 if __name__ == "__main__":
-    #import sys
-    #length = len(sys.argv) - 1
+    # import sys
+    # length = len(sys.argv) - 1
 
     if length == 0:
         print("{} arguements.".format(length))
