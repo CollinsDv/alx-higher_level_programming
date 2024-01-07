@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 def print_reversed_list_integer(my_list=[]):
+    # handle empty list
+    if not my_list:
+        return
     # reverse the list
     my_list.reverse()
 
