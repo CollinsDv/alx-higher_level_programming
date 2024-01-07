@@ -1,3 +1,6 @@
 #!/usr/bin/python3
 def element_at(my_list, idx):
-    return my_list.index(idx)
+    if idx < 0 and idx > len(my_list):
+        return
+    else:
+        return my_list.pop(idx)
