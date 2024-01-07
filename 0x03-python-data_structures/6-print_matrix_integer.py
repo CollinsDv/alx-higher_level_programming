@@ -11,7 +11,7 @@ def print_matrix_integer(matrix=[[]]):
 def print_matrix_integer(matrix=[[]]):
     # handle an empty list
     if not matrix or any(not row for row in matrix):
-        print("{}".format('$'))
+        print()
     else:
         for row in matrix:
             for num in row:
@@ -19,4 +19,4 @@ def print_matrix_integer(matrix=[[]]):
                 if num != row[-1]:
                     print("{:d} ".format(num), end='')
                 else:
-                    print("{:d}$".format(num))
+                    print("{:d}".format(num))
