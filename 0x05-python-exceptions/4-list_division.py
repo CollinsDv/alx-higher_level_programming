@@ -7,15 +7,14 @@ def list_division(my_list_1, my_list_2, list_length):
         try:
             quo = my_list_1[i] / my_list_2[i]
         except TypeError:
-            print("Wrong Type")
+            print("wrong type")
             quo = 0
         except ZeroDivisionError:
             print("division by 0")
             quo = 0
         except IndexError:
-            print("Index Error")
+            print("index error")
             quo = 0
-            break
         finally:
             L.append(quo)
 
