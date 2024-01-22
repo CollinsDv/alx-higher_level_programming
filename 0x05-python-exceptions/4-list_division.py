@@ -15,6 +15,7 @@ def list_division(my_list_1, my_list_2, list_length):
         except IndexError:
             print("Index Error")
             quo = 0
+            break
         finally:
             L.append(quo)
 
