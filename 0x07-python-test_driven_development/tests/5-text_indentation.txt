@@ -1,0 +1,39 @@
+Prints a new line after an instance of [',', ':', '?'] in a sentence
+The function ``text_indentation`` has to receive a string type only
+====================================================================
+
+using function ``text_indenetation``
+------------------------------------
+
+++ strings ++
+-------------
+
+	>>> indent = __import__("5-text_indentation").text_indentation
+	>>> indent("Hello: Collins")
+	Hello:
+	<BLANKLINE>
+	Collins
+
+	>>> indent("collins, are you well? you seem fatigued")
+	collins, are you well?
+	<BLANKLINE>
+	you seem fatigued
+
+	>>> indent("    .hello")
+	.
+	<BLANKLINE>
+	hello
+	
+++ non-strings ++
+-----------------
+
+will raise TypeError exception
+
+	>>> indent(None)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+	>>> indent(10)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+

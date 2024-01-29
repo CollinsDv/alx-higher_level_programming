@@ -1,0 +1,39 @@
+This uses the ``add_integer`` function from the ``add_integer.py`` module to 
+add two integer types
+
+=======================
+    using ``add_integer``
+-----------------------
+    	>>> add_integer = __import__('0-add_integer').add_integer
+    	>>> add_integer(10, 20)
+    	30
+
+    	handle one input
+    	>>> add_integer(20)
+    	118
+
+    	handle a as a string
+    	>>> add_integer('cake', 20)
+    	Traceback (most recent call last):
+    	TypeError: a must be an integer
+
+    	handle b as a string
+    	>>> add_integer(10, 'b')
+    	Traceback (most recent call last):
+    	TypeError: b must be an integer
+
+	handle None entries
+	>>> add_integer(None, 10)
+	Traceback (most recent call last):
+    	TypeError: a must be an integer
+
+	>>> add_integer(10, None)
+	Traceback (most recent call last):
+    	TypeError: b must be an integer
+
+	handle negative input
+	>>> add_integer(-10, -10)
+	-20
+
+	>>> add_integer(-10)
+	88

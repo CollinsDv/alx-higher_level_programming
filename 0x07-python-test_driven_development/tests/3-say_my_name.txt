@@ -1,0 +1,28 @@
+A test of a function that prints someone's name. 
+Location is in ``3-say_my_name``
+================================
+
+the function ``say_my_name``
+--------------------------------
+
+++ strings ++
+
+it takes actual strings and appends them correctly to print out the name
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name  
+	>>> say_my_name('collins', 'kimani')
+	My name is collins kimani
+	>>> say_my_name('collins')
+	My name is collins 
+
+++ non strings ++
+
+A TypeError will always be raised for the parameter of interest
+
+	>>> say_my_name(10, 'Henry')
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name('collins', 10)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
