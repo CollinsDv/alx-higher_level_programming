@@ -1,4 +1,4 @@
-#!.usr/bin/python3
+#!/usr/bin/python3
 """
 file: 1-matrix_divided
 args: matrix (list obj)
