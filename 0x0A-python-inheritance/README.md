@@ -1,0 +1,1 @@
+A delve into the inheritance concept that makes python programming awesome. It entails how classes are derived from a base class and inherit all it attributes making code development a breeze, easy, maintanable and a good representation of real world phenomenon.
