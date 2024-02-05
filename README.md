@@ -9,4 +9,6 @@ A documentation of my high-level programming journey
 ## `0x06-python-classes`
 ## `0x07-python-test_driven_development`
 ## `0x08-python_more_classes_and_objects`
-## `0x09=python_everything_is_object`
+## `0x09-python_everything_is_object`
+## `0x0A-python-inheritance`
+
