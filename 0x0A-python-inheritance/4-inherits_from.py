@@ -4,7 +4,7 @@ module determining types and class instances
 """
 
 
-def is_kind_of_class(obj, a_class):
+def inherits_from(obj, a_class):
     """
     Return True if obj is an instance of a class that inherited
     from a specified class, otherwise False
