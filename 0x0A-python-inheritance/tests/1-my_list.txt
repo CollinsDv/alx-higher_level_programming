@@ -1,0 +1,15 @@
+The file defines the proper channels of printing a list in sorted manner. It has to ensure it is of integer type
+
+===================
+in ``print_sorted``
+===================
+
+using integers
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> my_list.append(10)
+	>>> my_list.append(2)
+	>>> print(my_list)
+	[2, 10]
+	>>> my_list.print_sorted()
+	[10, 2]
