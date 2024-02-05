@@ -10,5 +10,5 @@ class MyList(list):
     """
     def print_sorted(self):
         """print a list in sorted order"""
-        if issubclass(MyList, List):
+        if issubclass(MyList, list):
             print(sorted(self))
