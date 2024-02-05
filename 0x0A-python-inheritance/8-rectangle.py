@@ -27,6 +27,7 @@ class Rectangle(BaseGeometry):
     getters and setters
     """
     def __init__(self, width, height):
+        """act as getter and setter"""
         self.integer_validator('width', width)
         self.integer_validator('height', height)
 
