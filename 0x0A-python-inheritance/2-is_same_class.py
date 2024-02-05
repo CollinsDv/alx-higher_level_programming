@@ -14,7 +14,7 @@ def is_same_class(obj, a_class):
         a_class - aledged inherited class
 
     """
-    if isinstance(a_class, obj) is True:
+    if isinstance(obj, a_class) is True:
         return True
     else:
         return False
