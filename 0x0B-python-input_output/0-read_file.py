@@ -13,6 +13,9 @@ def read_file(filename=""):
         printed lines
 
     """
+    if type(filename) is not str:
+        raise ValueError("filename has to be a string")
+
     with open(filename, encoding="UTF-8") as file:
         for line in file:
             print(line)
