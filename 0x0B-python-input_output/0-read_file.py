@@ -8,7 +8,7 @@ def read_file(filename=""):
 
     Args:
         filename (str): name of the file
-    
+
     Result:
         printed lines
 
