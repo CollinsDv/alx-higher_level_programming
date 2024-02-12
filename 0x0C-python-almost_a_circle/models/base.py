@@ -97,7 +97,7 @@ class Base:
 
         return [cls.create(**Dict) for Dict in dict_list]
 
-     @classmethod
+    @classmethod
     def save_to_file_csv(cls, list_objs):
         '''
         Wrte to csv
