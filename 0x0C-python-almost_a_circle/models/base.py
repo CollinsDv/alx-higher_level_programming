@@ -4,6 +4,7 @@
 import json
 from os import path
 
+
 class Base:
     """
     A base class definition having init dunder method
@@ -17,11 +18,11 @@ class Base:
         else:
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
-        
+
     @classmethod
     def reset(cls):
         cls.__nb_objects = 0
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """
@@ -37,7 +38,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """return list from JSON string representation
-        
+
         Args:
             json_string (str): a string representing a dict list
         """
@@ -61,7 +62,8 @@ class Base:
         for obj in list_objs:
             List.append(obj.to_dictionary())
 
-        with open('{}.json'.format(cls.__name__), mode='w', encoding='UTF-8') as f:
+        with open('{}.json'.format(cls.__name__),
+                  mode='w', encoding='UTF-8') as f:
             f.write(cls.to_json_string(List))
 
     @classmethod

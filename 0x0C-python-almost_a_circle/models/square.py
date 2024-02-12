@@ -30,7 +30,7 @@ class Square(Rectangle):
                 self.size = args[1]
                 self.x = args[2]
                 self.y = args[3]
-            except:
+            except Exception:
                 pass
         else:
             if 'id' in kwargs:
@@ -44,9 +44,9 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """return dict representation of a square"""
-        return {'id' : self.id, 'x' : self.x,
-                'size' : self.size, 'y' : self.y}
-  
+        return {'id': self.id, 'x': self.x,
+                'size': self.size, 'y': self.y}
+
     def __str__(self):
         return "[{}] ({}) {}/{} - {}".format(
                 type(self).__name__, self.id, self.x, self.y,

@@ -31,7 +31,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """heigth getter""" 
+        """heigth getter"""
         return self.__height
 
     @height.setter
@@ -97,7 +97,7 @@ class Rectangle(Base):
                 self.height = args[2]
                 self.x = args[3]
                 self.y = args[4]
-            except:
+            except Exception:
                 pass
         else:
             if 'id' in kwargs:
@@ -113,9 +113,9 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """return dict representation of a Rectangle"""
-        return {'x' : self.x, 'y' : self.y , 'id' : self.id, 'height' : self.height,
-                'width' : self.width}
-  
+        return {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height,
+                'width': self.width}
+
     def __str__(self):
         """return string object representation"""
         return "[{}] ({}) {}/{} - {}/{}".format(
