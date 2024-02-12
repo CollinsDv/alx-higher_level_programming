@@ -15,10 +15,12 @@ class Rectangle(Base):
         self.y = y
 
     @property
+    """width getter"""
     def width(self):
         return self.__width
 
     @width.setter
+    """width setter"""
     def width(self, value):
         if type(value) is not int:
             raise TypeError("width must be an integer")
@@ -27,10 +29,12 @@ class Rectangle(Base):
         self.__width = value
 
     @property
+    """height getter"""
     def height(self):
         return self.__height
 
     @height.setter
+    """height setter"""
     def height(self, value):
         if type(value) is not int:
             raise TypeError("height must be an integer")
@@ -39,10 +43,12 @@ class Rectangle(Base):
         self.__height = value
 
     @property
+    """x getter"""
     def x(self):
         return self.__x
 
     @x.setter
+    """x setter"""
     def x(self, value):
         if type(value) is not int:
             raise TypeError("x must be an integer")
@@ -51,10 +57,12 @@ class Rectangle(Base):
         self.__x = value
 
     @property
+    """y getter"""
     def y(self):
         return self.__y
 
     @y.setter
+    """y setter"""
     def y(self, value):
         if type(value) is not int:
             raise TypeError("y must be an integer")
@@ -108,6 +116,7 @@ class Rectangle(Base):
                 'width' : self.width}
   
     def __str__(self):
+        """return string object representation"""
         return "[{}] ({}) {}/{} - {}/{}".format(
                 type(self).__name__, self.id, self.x, self.y,
                 self.width, self.height)
