@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import unittest
 from models.square import Square
+from models.rectangle import Rectangle
+import json
 
 
 class TestSquare(unittest.TestCase):
@@ -66,3 +68,24 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.s1.x, 1)
         self.assertEqual(self.s1.y, 3)
         self.assertEqual(self.s1.size, 2)
+
+    def test_setter_getter(self):
+        self.assertEqual(self.s1.width, 5)
+        self.assertEqual(self.s1.height, 5)
+
+    def test_save_to_file(self):
+        Square.save_to_file(None)
+        with open('Square.json', 'r', encoding='UTF-8') as f:
+            self.assertEqual('[]', f.read())
+
+    def test_save_load_file(self):
+        s1 = Square(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Square.save_to_file([s1, r2])
+        load_file = Square.load_from_file()
+        self.assertTrue(isinstance(load_file, list))
+
+    def test_to_dict(self):
+        dict1 = self.sqr1.to_dictionary()
+        self.assertEqual({'id': 1, 'size': 2, 'x': 4, 'y': 0}, dict1)
+        self.assertTrue(isinstance(dict1, dict))

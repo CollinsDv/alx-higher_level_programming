@@ -96,4 +96,34 @@ class Base:
             dict_list = cls.from_json_string(f.read())
 
         return [cls.create(**Dict) for Dict in dict_list]
-        
+
+     @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''
+        Wrte to csv
+        '''
+        listToDictionary = []
+        if list_objs is not None:
+            list_objs = []
+        for items in list_objs:
+            listToDictionary.append(items.to_dictionary())
+
+        with open('{}.csv'.format(cls.__name__), 'w', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''
+        Returns a list
+        of instances
+        '''
+        instanceList = []
+        try:
+            with open('{}'.format(cls.__name__), 'r', encoding='utf-8') as f:
+                objectList = cls.from_json_string(f.read())
+        except IOError:
+            return []
+        for dictionary in objectList:
+            instanceList.append(cls.create(**dictionary))
+        return instanceList
