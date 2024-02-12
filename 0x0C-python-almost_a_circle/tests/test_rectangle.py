@@ -3,6 +3,7 @@ import unittest
 from models.rectangle import Rectangle
 from io import StringIO
 from os import sys
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -12,6 +13,12 @@ class TestRectangle(unittest.TestCase):
 
     def tearDown(self):
         Rectangle.reset()
+
+    def test_rectangle(self):
+        self.assertTrue(str(Rectangle), "<class 'models.rectangle.Rectangle'>")
+
+    def test_rectangle_inheritance(self):
+        self.assertTrue(issubclass(Rectangle, Base))
 
     def test_correct_input(self):
         self.assertEqual(self.r1.width, 5)

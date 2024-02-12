@@ -2,6 +2,7 @@
 import unittest
 from models.square import Square
 from models.rectangle import Rectangle
+from models.base import Base
 import json
 
 
@@ -78,6 +79,10 @@ class TestSquare(unittest.TestCase):
         with open('Square.json', 'r', encoding='UTF-8') as f:
             self.assertEqual('[]', f.read())
 
+    def test_class(self):
+        self.assertTrue(str(Square), "<class 'models.square.Square'>")
+
+
     def test_save_load_file(self):
         s1 = Square(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
@@ -86,6 +91,9 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(isinstance(load_file, list))
 
     def test_to_dict(self):
-        dict1 = self.sqr1.to_dictionary()
-        self.assertEqual({'id': 1, 'size': 2, 'x': 4, 'y': 0}, dict1)
+        dict1 = self.s1.to_dictionary()
+        self.assertEqual({'id': 1, 'size': 5, 'x': 5, 'y': 2}, dict1)
         self.assertTrue(isinstance(dict1, dict))
+
+    def test_square(self):
+        self.assertTrue(issubclass(Square, Base))
