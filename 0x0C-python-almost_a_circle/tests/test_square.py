@@ -5,8 +5,8 @@ from models.square import Square
 
 class TestSquare(unittest.TestCase):
     def setUp(self):
-        self.s1 = Square(5, 5, 2, 2)
-        self.s2 = Square(2, 2, 1, 4)
+        self.s1 = Square(5, 5, 2)
+        self.s2 = Square(2, 2, 1)
 
     def tearDown(self):
         Square.reset()
@@ -18,8 +18,6 @@ class TestSquare(unittest.TestCase):
     def test_missing_inputs(self):
         with self.assertRaises(TypeError):
             s1 = Square()
-        with self.assertRaises(TypeError):
-            s2 = Square(20)
 
     def test_negative(self):
         with self.assertRaises(ValueError):
@@ -50,22 +48,21 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.s2.display(), None)
 
     def test_str_dunder(self):
-        self.assertEqual(self.s1.__str__(), '[Square] (1) 2/2 - 5/5')
-        self.assertEqual(self.s2.__str__(), '[Square] (2) 1/4 - 2/2')
+        self.assertEqual(self.s1.__str__(), '[Square] (1) 5/2 - 5')
+        self.assertEqual(self.s2.__str__(), '[Square] (2) 2/1 - 2')
 
     def test_args_update(self):
-        self.s1.update(89, 2, 3, 4, 5)
+        self.s1.update(89, 2, 3, 4)
 
         self.assertEqual(self.s1.id, 89)
         self.assertEqual(self.s1.size, 2)
-        self.assertEqual(self.s1.x, 4)
-        self.assertEqual(self.s1.y, 5)
+        self.assertEqual(self.s1.x, 3)
+        self.assertEqual(self.s1.y, 4)
 
     def test_args_kwargs(self):
-        self.r1.update(x=1, height=2, y=3, width=4)
+        self.s1.update(x=1, size=2, y=3, width=4)
 
-        self.assertEqual(self.r1.id, 1)
-        self.assertEqual(self.r1.width, 4)
-        self.assertEqual(self.r1.height, 2)
-        self.assertEqual(self.r1.x, 1)
-        self.assertEqual(self.r1.y, 3)
+        self.assertEqual(self.s1.id, 1)
+        self.assertEqual(self.s1.x, 1)
+        self.assertEqual(self.s1.y, 3)
+        self.assertEqual(self.s1.size, 2)
