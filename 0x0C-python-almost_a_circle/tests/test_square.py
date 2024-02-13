@@ -82,7 +82,6 @@ class TestSquare(unittest.TestCase):
     def test_class(self):
         self.assertTrue(str(Square), "<class 'models.square.Square'>")
 
-
     def test_save_load_file(self):
         s1 = Square(10, 7, 2, 8)
         r2 = Rectangle(2, 4)

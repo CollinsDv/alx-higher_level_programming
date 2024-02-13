@@ -63,7 +63,7 @@ class Base:
             List.append(obj.to_dictionary())
 
         with open('{}.json'.format(cls.__name__),
-                mode='w', encoding='UTF-8') as f:
+                  mode='w', encoding='UTF-8') as f:
             f.write(cls.to_json_string(List))
 
     @classmethod
@@ -138,7 +138,7 @@ class Base:
                     fieldnames = ["id", "size", "x", "y"]
                 list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
                 list_dicts = [dict([k, int(v)] for k, v in d.items())
-                        for d in list_dicts]
+                              for d in list_dicts]
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
