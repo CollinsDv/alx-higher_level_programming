@@ -1,3 +1,3 @@
 -- show a list of tables in a database, of which is  passed as an
 -- 	arguement
-show tables;
+SHOW tables;
