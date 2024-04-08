@@ -5,6 +5,6 @@ if (process.argv.length <= 3) {
   console.log(0);
 } else {
   const newList = process.argv.slice(2, process.argv.length + 1);
-  newList.sort(function (a, b) { return a - b; });
+  newList.sort(function (a, b) { return b - a; });
   console.log(newList[1]);
 }
