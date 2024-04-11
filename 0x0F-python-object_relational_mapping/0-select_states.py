@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """accessing and printing a database contents
 """
+
+
 def main():
     """executes the code below"""
     # connect to database
@@ -17,6 +19,7 @@ def main():
 
     for row in rows:
         print(row)
+
 
 if __name__ == '__main__':
     import MySQLdb
