@@ -12,9 +12,8 @@ def main():
     cur = db.cursor()
 
     # execute query
-    cur.execute('''SELECT * FROM states
-                WHERE name=%s
-                ORDER BY id ASC''', (sys.argv[4],))
+    cur.execute('SELECT * FROM states WHERE name="{}" ORDER BY id ASC'
+                .format(sys.argv[4]))
 
     # obtain results
     rows = cur.fetchall()
