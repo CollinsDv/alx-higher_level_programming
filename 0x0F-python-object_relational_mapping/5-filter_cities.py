@@ -22,6 +22,9 @@ if __name__ == '__main__':
                          ORDER BY cities.id''', (sys.argv[4],))
 
             # printing results
+            if cur.fetchall() is None:  # empty database
+                exit(0)
+
             sorted_list = []
             for row in cur.fetchall():
                 if row[0] not in sorted_list:
