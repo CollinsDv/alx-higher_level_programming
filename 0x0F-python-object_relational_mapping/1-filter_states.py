@@ -23,6 +23,8 @@ def main():
             for row in rows:
                 print(row)
 
+        cur.close()
+
     except MySQLdb.Error as e:
         pass
     finally:
