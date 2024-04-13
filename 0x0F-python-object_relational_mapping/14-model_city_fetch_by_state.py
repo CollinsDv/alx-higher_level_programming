@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     session = Session()
 
-    result = session.query(City).join(State).filter(
+    result = session.query(City, State).filter(
             State.id == City.state_id).order_by(asc(City.id))
 
     for row in result:
