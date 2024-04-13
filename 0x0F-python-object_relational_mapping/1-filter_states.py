@@ -17,8 +17,9 @@ def main():
     # obtain results
     rows = cur.fetchall()
 
-    for row in rows:
-        print(row)
+    if rows:
+        for row in rows:
+            print(row)
 
 
 if __name__ == '__main__':
