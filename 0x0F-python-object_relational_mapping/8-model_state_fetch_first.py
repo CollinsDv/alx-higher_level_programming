@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""generate query to database
+"""generate query to database that prints the 1st object
 """
 
 from sqlalchemy import create_engine
@@ -18,8 +18,7 @@ if __name__ == '__main__':
     # initialize a session to communicate with database
     session = Session()
 
-    result = session.query(State).order_by(State.id)
+    result = session.query(State).first()
 
     if result:
-        for row in result:
-            print(row.id + ': ' + row.name)
+        print(result.id + ': ' + result.name)
