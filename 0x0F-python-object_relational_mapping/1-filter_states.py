@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """accessing and printing a database contents
 """
+import MySQLdb
+import sys
 
 
 def main():
     """prints ensuring certain query requirements"""
     try:
         # connect to database
-        db = MySQLdb.connect(
+        db = MySQLdb.connect(port=3306, host='localhost',
                 user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
         cur = db.cursor()
@@ -33,7 +35,5 @@ def main():
 
 
 if __name__ == '__main__':
-    import MySQLdb
-    import sys
 
     main()
