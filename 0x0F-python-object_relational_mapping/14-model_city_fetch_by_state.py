@@ -12,14 +12,14 @@ if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
-    Base.metadata.create_all()
+    Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
 
     session = Session()
 
     result = session.query(City, State).filter(
-            State.id == City.state_id).order_by(asc(City.id))
+            State.id == City.state_id).order_by(City.id))
 
     for row in result:
         print(row.state.name + ': (' + str(row.id) + ') ' + row.name)
