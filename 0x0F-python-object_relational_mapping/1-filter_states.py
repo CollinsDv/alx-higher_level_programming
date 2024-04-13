@@ -10,13 +10,15 @@ def main():
     try:
         # connect to database
         db = MySQLdb.connect(port=3306, host='localhost',
-                user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+                             user=sys.argv[1],
+                             passwd=sys.argv[2],
+                             db=sys.argv[3])
 
         cur = db.cursor()
 
         # execute query
         cur.execute('''SELECT * FROM states
-                    WHERE name like "N%" ORDER BY id ASC''')
+                    WHERE name like BINARY 'N%' ORDER BY id ASC''')
 
         # obtain results
         rows = cur.fetchall()
