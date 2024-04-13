@@ -1,15 +1,14 @@
 #!/usr/bin/python3
-"""base class definition for city"""
-
-from model_state import Base
+"""
+City link class to table in database
+"""
 from sqlalchemy import Column, Integer, String, ForeignKey
+from model_state import Base
 
 
 class City(Base):
-    """defining cities class to be mapped to table"""
+    """City class that links to MySQL table city"""
     __tablename__ = 'cities'
-
-    id = Column(autoincrement=True, Integer,
-                nullable=False, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, nullable=False, ForeignKey('states.id'))
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
