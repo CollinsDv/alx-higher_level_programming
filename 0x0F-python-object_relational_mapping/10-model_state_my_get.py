@@ -20,8 +20,10 @@ if __name__ == '__main__':
     session = Session()
 
     result = session.query(State).filter(
-            State.name.like("%:name%")).params(name=sys.argv[4])
+            State.name.like("%{}%".format(sys.argv[4])))
 
     if result:
         for row in result:
             print(row.id + ': ' + row.name)
+    else:
+        print('Not Found')
