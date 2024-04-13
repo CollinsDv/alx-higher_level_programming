@@ -20,7 +20,9 @@ def main():
 
     for row in rows:
         print(row)
-
+    
+    cur.close()
+    db.close()
 
 if __name__ == '__main__':
     import MySQLdb
