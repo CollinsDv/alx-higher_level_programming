@@ -12,7 +12,8 @@ def main():
     cur = db.cursor()
 
     # execute query
-    cur.execute('SELECT * FROM states WHERE name="{}" ORDER BY id ASC'
+    cur.execute('''SELECT * FROM states
+                WHERE name like BINARY "{}" ORDER BY id ASC'''
                 .format(sys.argv[4]))
 
     # obtain results
@@ -20,9 +21,10 @@ def main():
 
     for row in rows:
         print(row)
-    
+
     cur.close()
     db.close()
+
 
 if __name__ == '__main__':
     import MySQLdb
