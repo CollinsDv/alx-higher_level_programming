@@ -20,7 +20,7 @@ if __name__ == '__main__':
     session = Session()
 
     result = session.query(State).filter(State.name == sys.argv[4]).first()
-    
+
     if result:
         print('{0}'.format(result.id,))
     else:
