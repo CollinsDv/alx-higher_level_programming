@@ -17,12 +17,13 @@ if __name__ == '__main__':
             cur.execute('''SELECT DISTINCT cities.id, cities.name
                          FROM cities
                          JOIN states ON cities.state_id = states.id
-                         WHERE states.name = %s
+                         WHERE states.name like BINARY %s
                          ORDER BY cities.id''', (sys.argv[4],))
 
             # printing results
-            if cur.fetchall():
-                print(', '.join([row[1] for row in cur.fetchall()]))
+            rows = cur.fetchall()
+            if rows:
+                print(', '.join([row[1] for row in rows]))
 
     except MySQLdb.Error as e:
         print(e)
