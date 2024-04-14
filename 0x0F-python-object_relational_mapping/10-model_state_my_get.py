@@ -19,10 +19,9 @@ if __name__ == '__main__':
     # initialize a session to communicate with database
     session = Session()
 
-    result = session.query(State).filter(
-            State.name == sys.argv[4])
-
+    result = session.query(State).filter(State.name == sys.argv[4]).first()
+    
     if result:
-        print('{}'.format(result.id))
+        print('{0}'.format(result.id,))
     else:
-        print('Not Found')
+        print("Not found")
