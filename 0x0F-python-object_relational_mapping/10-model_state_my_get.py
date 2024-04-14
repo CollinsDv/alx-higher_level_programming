@@ -20,7 +20,7 @@ if __name__ == '__main__':
     session = Session()
 
     result = session.query(State).filter(
-            State.name.like("%{}%".format(sys.argv[4])))
+            State.name == sys.argv[4])
 
     if result:
         print('{}'.format(result.id))
