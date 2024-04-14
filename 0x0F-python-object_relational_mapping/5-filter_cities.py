@@ -7,24 +7,23 @@ if __name__ == '__main__':
     import MySQLdb
 
     # connect
-    try:
-        db = MySQLdb.connect(user=sys.argv[1],
-                             passwd=sys.argv[2],
-                             db=sys.argv[3])
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argvs
 
-        # cursor and query execution
-        with db.cursor() as cur:
-            cur.execute('''SELECT DISTINCT cities.id, cities.name
-                         FROM cities
-                         JOIN states ON cities.state_id = states.id
-                         WHERE states.name like BINARY %s
-                         ORDER BY cities.id''', (sys.argv[4],))
+	cur = db.cursor()
 
-            # printing results
-            rows = cur.fetchall()
-            if rows:
-                print(', '.join([row[1] for row in rows]))
+    cur.execute("""SELECT cities.id, cities.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        WHERE states.name LIKE BINARY %s
+        ORDER BY cities.id ASC
+    	""", (sys.argv[4],))
 
-    except MySQLdb.Error as e:
-        print(e)
-        pass
+    rows = cur.fetchall()
+
+    if rows is not None:
+        print(", ".join([row[1] for row in rows]))
+
+    cur.close()
+    db.close()
