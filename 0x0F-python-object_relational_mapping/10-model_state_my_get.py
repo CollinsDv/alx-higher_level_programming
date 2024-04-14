@@ -23,7 +23,6 @@ if __name__ == '__main__':
             State.name.like("%{}%".format(sys.argv[4])))
 
     if result:
-        for row in result:
-            print(row.id + ': ' + row.name)
+        print('{}'.format(result.id))
     else:
         print('Not Found')
