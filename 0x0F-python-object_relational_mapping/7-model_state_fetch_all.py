@@ -18,9 +18,7 @@ if __name__ == '__main__':
     # initialize a session to communicate with database
     session = Session()
 
-    result = session.query(State).order_by(State.id)
-
-    for row in result:
-        print(row.id + ': ' + row.name)
+    for state in session.query(State).order_by(State.id):
+        print('{}: {}'.format(state.id, state.name))
 
     session.close()
