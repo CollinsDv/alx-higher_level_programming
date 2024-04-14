@@ -8,7 +8,7 @@ import sys
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
     Base.metadata.create_all(engine)
@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
     result = session.query(State).order_by(State.id)
 
-    if result:
-        for row in result:
-            print(row.id + ': ' + row.name)
+    for row in result:
+        print(row.id + ': ' + row.name)
+
+    session.close()
