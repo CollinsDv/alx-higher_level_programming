@@ -14,22 +14,16 @@ if __name__ == '__main__':
 
         # cursor and query execution
         with db.cursor() as cur:
-            cur.execute('''SELECT cities.name
+            cur.execute('''SELECT DISTINCT cities.id, cities.name
                          FROM cities
-                         JOIN states ON cities.state_id = (
-                            SELECT id FROM states WHERE name = %s
-                         )
+                         JOIN states ON cities.state_id = states.id
+                         WHERE states.name = %s
                          ORDER BY cities.id''', (sys.argv[4],))
 
             # printing results
-            if cur.fetchall() is None:  # empty database
-                exit(0)
-
-            sorted_list = []
-            for row in cur.fetchall():
-                if row[0] not in sorted_list:
-                    sorted_list.append(row[0])
-            print(*sorted_list)
+            if cur.fetchall():
+                print(', '.join([row[1] for row in cur.fetchall()]))
 
     except MySQLdb.Error as e:
+        print(e)
         pass
