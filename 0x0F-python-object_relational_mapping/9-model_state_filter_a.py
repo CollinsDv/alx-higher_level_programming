@@ -23,4 +23,5 @@ if __name__ == '__main__':
 
     if result:
         for row in result:
-            print(row.id + ': ' + row.name)
+            print('{}: {}'.format(row.id, row.name))
+
