@@ -13,7 +13,7 @@ from urllib.error import URLError, HTTPError
 try:
     # connect with Request object with content manager
     with urllib.request.urlopen(
-            'https://al-intranet.hbtn.io/status') as response:
+            'https://alx-intranet.hbtn.io/status') as response:
         # get body content
         body = response.read()
 except HTTPError as error:
