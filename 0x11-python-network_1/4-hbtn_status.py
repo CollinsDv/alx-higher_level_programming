@@ -11,8 +11,8 @@
             - content: OK$
 """
 import requests
-if __name__ == '__main__':
-    req = requests.get('https://alx-intranet.hbtn.io/status')
-    print('Body response:')
-    print('\ttype:', type(req.text))
-    print('\tcontent', req.text)
+# if __name__ == '__main__':
+response = requests.get('https://alx-intranet.hbtn.io/status')
+print('Body response:')
+print('\ttype:', type(response.text))
+print('\tcontent', response.content)
