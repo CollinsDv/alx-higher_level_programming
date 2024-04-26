@@ -9,14 +9,20 @@
             - utf8 content: OK
 """
 import urllib.request
-# connect with Request object with content manager
-with urllib.request.urlopen(
-        'https://alx-intranet.hbtn.io/status') as response:
-    # get headers alone
-    body = response.read()
-
-decoded_body = body.decode('utf-8')
-print('Body response:')
-print('\t- type:', type(body))
-print('\t- content:', body)
-print('\t- utf8 content:', decoded_body)
+from urllib.error import URLError, HTTPError
+try:
+    # connect with Request object with content manager
+    with urllib.request.urlopen(
+            'https://al-intranet.hbtn.io/status') as response:
+        # get body content
+        body = response.read()
+except HTTPError as error:
+    print(error.status, error.reason)
+except URLError as error:
+    print(error.reason)
+else:
+    decoded_body = body.decode('utf-8')
+    print('Body response:')
+    print('\t- type:', type(body))
+    print('\t- content:', body)
+    print('\t- utf8 content:', decoded_body)
