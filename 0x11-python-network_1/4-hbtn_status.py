@@ -15,4 +15,4 @@ import requests
 response = requests.get('https://alx-intranet.hbtn.io/status')
 print('Body response:')
 print('\ttype:', type(response.text))
-print('\tcontent', response.content)
+print('\tcontent', response.text)
