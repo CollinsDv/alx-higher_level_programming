@@ -21,8 +21,9 @@ def find_peak(list_of_integers):
             return list_of_integers[index] >= list_of_integers[index + 1]
         if index == len(list_of_integers) - 1:
             return list_of_integers[index] >= list_of_integers[index - 1]
-        return list_of_integers[index] >= list_of_integers[index - 1]
-        and list_of_integers[index] >= list_of_integers[index + 1]
+        return list_of_integers[index] >= list_of_integers[
+                index - 1] and list_of_integers[
+                        index] >= list_of_integers[index + 1]
 
     # Binary search to find a peak
     left, right = 0, len(list_of_integers) - 1
