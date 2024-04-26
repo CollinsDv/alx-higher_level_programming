@@ -8,6 +8,8 @@
         - You don’t need to check script arguments (number and type)
 """
 import requests
+import sys
+
 if __name__ == '__main__':
-    response = requests.head('https://alx-intranet.hbtn.io/status')
+    response = requests.head(sys.argv[1])
     print(response.headers["X-Request-Id"])
