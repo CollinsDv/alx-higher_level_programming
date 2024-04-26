@@ -11,8 +11,8 @@ import urllib.request
 import sys
 
 # generate request object
-request_obj = urllib.request.Request(sys.argv[1])
+# request_obj = urllib.request.Request(sys.argv[1])
 # use context manager to open a link
-with urllib.request.urlopen(request_obj) as response:
+with urllib.request.urlopen(sys.argv[1]) as response:
     value = response.getheader('X-Request-Id')
     print(value)
