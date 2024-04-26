@@ -13,6 +13,7 @@ import sys
 # generate request object
 # request_obj = urllib.request.Request(sys.argv[1])
 # use context manager to open a link
-with urllib.request.urlopen(sys.argv[1]) as response:
-    value = response.getheader('X-Request-Id')
-    print(value)
+if __name__ == '__main__':
+    with urllib.request.urlopen(sys.argv[1]) as response:
+        value = response.getheader('X-Request-Id')
+        print(value)
