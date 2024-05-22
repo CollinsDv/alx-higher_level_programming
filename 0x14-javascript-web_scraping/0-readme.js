@@ -6,9 +6,9 @@ script that reads and prints the contents of a file
   * If an error occurred during the reading, print the error object
 */
 
-const fs = require("fs");
+const fs = require('fs');
 
-fs.readFile(process.argv[2], "utf-8", (error, data) => {
+fs.readFile(process.argv[2], 'utf-8', (error, data) => {
   if (error) {
     console.log(error);
   } else {
