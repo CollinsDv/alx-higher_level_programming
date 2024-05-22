@@ -2,14 +2,28 @@
 /*
 gets webpage contents and stores in a file
 - 1st arg: URL request
-- 2nd arg: file path(utf-8 encoded)
+- 2nd arg: file path (UTF-8 encoded)
 - use request module
 */
 
 const request = require('request');
 const fs = require('fs');
 
-const _url = process.argv[2];
-const _file = process.argv[3];
+const url = process.argv[2];
+const filePath = process.argv[3];
 
-request(_url).pipe(fs.createWriteStream(_file));
+request(url, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error);
+    return;
+  }
+  if (response.statusCode !== 200) {
+    console.error('Error: Failed to fetch data. Status code:', response.statusCode);
+    return;
+  }
+  fs.writeFile(filePath, body, 'utf-8', (err) => {
+    if (err) {
+      console.error('Error writing to file:', err);
+    }
+  });
+});
