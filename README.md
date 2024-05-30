@@ -20,3 +20,4 @@ A documentation of my high-level programming journey
 ## `0x0F-python-object_relational_mapping`
 ## `0x10-python-network_0`
 ## `0x14-javascript-web_scraping`
+## `0x15-javascript-web_jquery`
